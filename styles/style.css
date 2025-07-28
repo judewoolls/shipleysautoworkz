@@ -3,6 +3,7 @@
 /* styles */
 body {
     background-color: black;
+    color: white;
     padding: 0;
     margin: 0;
 }
@@ -29,11 +30,12 @@ nav {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
-    min-height: 40vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: white 1px solid;
 }
 
 .hero::before {
@@ -48,9 +50,15 @@ nav {
     z-index: -1;
 }
 
+.hero h1 {
+    font-size: 3em;
+    color: white;
+    margin: 0;
+}
+
 .hero button {
-    background-color: white;
-    color: black;
+    background-color: violet;
+    color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -59,25 +67,54 @@ nav {
     font: 400 16px 'Roboto', sans-serif;
 }
 .hero button:hover {
-    background-color: black;
+    background-color: violet;
     color: white;
-    box-shadow: rgb(246, 245, 245) 0px 5px 15px;
+    box-shadow: rgb(243, 115, 230) 0px 5px 15px;
 }
 
+
 main {
-    background-color: white;
+    background-color: #1a1a1a;
     padding: 20px;
 }
 
 .about {
     text-align: center;
+    padding: 40px;
+    background-color: black;
+    max-width: 95%;
+    border: violet 1px solid;
+    border-radius: 10px;
 }
 
+#about-title {
+    font-size: 2em;
+    color: white;
+    margin-top: -5px;
+}
+
+.about-text {
+    font-size: 1em;
+    color: #d3d3d3;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+/* Services section */
+
+
+
+/* ##### */
+
+/* contact section */
 .contact {
-    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
 }
 
+/*  ###### */
 
+/* footer */
 footer {
     background-color: black;
     color: white;
@@ -86,3 +123,5 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+/*  #####  */
