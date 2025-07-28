@@ -1,0 +1,202 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#mot-card {
+    background: url('../images/Copilot_20250728_185951.png') center;
+    background-size: cover;
+}
+
+#backend-card {
+    background: url('../images/cards/web-app-black-white.png') center;
+    background-size: cover;
+}
+
+#uiux-card {
+    background: url('../images/cards/a\ man\ drawing\ a\ business-style\ mindmap.png');
+    background-size: cover;
+}
+
+
+
+.card {
+    min-height: 400px;
+    /* background-image: url('../images/cards/a\ man\ writing\ code.png'); */
+    padding: 10rem 0 0;
+    max-width: 40ch;
+    min-width: 40ch;
+    text-align: left;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    transition: transform 0.3s ease-in-out;
+
+}
+
+/* .card:hover,
+.card:focus-within {
+    transform: scale(1.05);
+} */
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+    hsla(0, 100%, 98%, 0),
+    hsla(0, 0%, 39%, 0.3) 20%,
+    hsl(0, 0%, 0%));
+
+}
+
+.card-title {
+    color: white;
+    width: max-content;
+    position: relative;
+    
+}
+
+.card-title::after {
+    content: '';
+    display: block;
+    width: calc(100% + var(--padding));
+    height: 4px;
+    background-color: violet;
+    position: absolute;
+    bottom: -2px;
+    left: calc(var(--padding) * -1);
+    transform-origin: left;
+}
+
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+    transform: scaleX(1);
+    transition: transform 500ms ease;
+}
+
+.card-body {
+    /* color: rgb(255 255 255 / 0.85); */
+    color: white;
+    text-align: left;
+    margin-left: 0px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-button {
+    cursor: pointer;
+    display: inline-block;
+    background-color: violet;
+    text-decoration: none;
+    color: white;
+    padding: 0.3em 1em;
+    border-radius: .25em;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-button:hover,
+.card-button:focus {
+    background-color: white;
+    box-shadow: 0 0 15px white;
+    color: black;
+}
+
+
+.content-section {
+    overflow-x: hidden;
+}
+
+.service-card-start {
+    transform:translateX(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: 0.3s;
+}
+
+.service-card-end {
+    transform:translateX(0);
+    opacity: 1;
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+}
+
+.service-card-start-2 {
+    transform:translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: 0.3s;
+}
+
+.service-card-end-2 {
+    transform:translateX(0);
+    opacity: 1;
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+}
+
+@media (hover) {
+    .card-content {
+        transform: translateY(65%);
+        transition: transform 0.5s ease;
+    }
+    .card:hover .card-content,
+.card:focus-within .card-content {
+    transform: translateY(0);
+    transition-delay: 500ms;
+}
+
+.card:focus-within .card-content {
+    transition-duration: 0ms;
+}
+
+.card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card:hover .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 800ms;
+}
+
+.card:focus-within .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 300ms;
+}
+
+.card-title::after {
+    transform: scaleX(0);
+}
+    
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;;
+        scroll-behavior: auto !important;
+        animation-delay: 0.01ms !important;
+    }
+
+    .card:hover {
+        transform: scale(1) !important;
+        transition: none !important;
+    }
+
+    .card-button:hover {
+        box-shadow: none !important;
+    }
+
+    .service-card-end, .service-card-end-2 {
+        transform:translateX(0);
+        opacity: 1;
+        transition: all 0.001ms ease;
+        transition-delay: 0.01ms;
+    }
+
+}
