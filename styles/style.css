@@ -104,19 +104,32 @@ main {
 
 .services {
     text-align: center;
-    padding: 20px;
-    background-color: #2c2c2c;
     border-radius: 10px;
-    margin: 20px auto;
     max-width: 95%;
-}
-
-#services-card-div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
 }
+
+#services-section-title {
+    font-size: 1.5em;
+    margin-top: 20px;
+    position: relative;
+}
+
+#services-section-title::before {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background-color: violet;
+    position: absolute;
+    bottom: -2px;
+    left: -25px;
+}
+
 
 /* ##### */
 
