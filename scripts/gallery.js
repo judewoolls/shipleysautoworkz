@@ -20,11 +20,9 @@ function updateGallery() {
 galleryLeftButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateGallery();
-    console.log(`Current index: ${currentIndex}, Image: ${images[currentIndex]}`);
 });
 
 galleryRightButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % images.length;
     updateGallery();
-    console.log(`Current index: ${currentIndex}, Image: ${images[currentIndex]}`);
 });
