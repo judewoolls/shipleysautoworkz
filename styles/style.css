@@ -23,6 +23,7 @@ nav {
     padding: 10px;
     margin: none;
     text-align: center;
+    border-bottom: 2px solid gray;
 }
 
 .hero {
@@ -36,7 +37,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: white 1px solid;
+    border-bottom: gray 2px solid;
 }
 
 .hero::before {
