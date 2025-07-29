@@ -166,7 +166,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 100px;
+    gap: 50px;
     flex-wrap: wrap;
 }
 
@@ -177,7 +177,26 @@ main {
     border: 1px solid violet;
     border-radius: 10px;
     max-width: 300px;
+    min-width: 300px;
     flex: 1;
+}
+
+.contact-card h3 {
+    font-size: 1.5em;
+    margin-bottom: -10px;
+}
+
+.contact-card p {
+    color: #d3d3d3;
+}
+
+.contact-card a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px;
+    background-color: violet;
+    border-radius: 5px;
 }
 
 form {
@@ -279,3 +298,4 @@ footer i:hover {
 }
 
 /*  #####  */
+
