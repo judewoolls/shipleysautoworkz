@@ -162,6 +162,23 @@ main {
     align-items: center;
 }
 
+#contact-title {
+    font-size: 1.5em;
+    margin-top: 20px;
+    position: relative;
+}
+
+#contact-title::after {
+    content: '';
+    display: block;
+    width: 6.5ch;
+    height: 4px;
+    background-color: violet;
+    position: absolute;
+    left: 30;
+    bottom: -20;
+}
+
 #contact-cards-div {
     display: flex;
     flex-direction: row;
