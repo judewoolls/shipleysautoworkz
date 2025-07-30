@@ -40,7 +40,7 @@ nav img.logo {
     padding: 20px;
     text-align: center;
     color: white;
-    background-color: rgba(0, 0, 0, 0.67);
+    background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     min-height: 60vh;
     display: flex;
@@ -57,7 +57,7 @@ nav img.logo {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../images/shipleysautoworkz/23.JPG") no-repeat center right;
+    background: url("../images/shipleysautoworkz/1.png") no-repeat center right;
     background-size: cover;
     z-index: -1;
 }
