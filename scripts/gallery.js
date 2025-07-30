@@ -4,14 +4,14 @@ const galleryRightButton = document.querySelector('.gallery-button:last-child');
 
 let currentIndex = 0;
 const images = [
-    'images/Copilot_20250728_185951.png',
-    'images/pexels-olly-3806288.jpg',
-    'images/young-auto-mechanic-1024x683.jpg',
+    '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', 
+    '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png', 
+    '21.png', '22.png', '23.png', '24.png', '25.png'
 ]
 
 function updateGallery() {
-    gallery.style.backgroundImage = `url(${images[currentIndex]})`;
-    gallery.style.backgroundSize = 'cover';
+    gallery.style.backgroundImage = `url(images/shipleysautoworkz/${images[currentIndex]})`;
+    gallery.style.backgroundSize = 'contain';
     gallery.style.backgroundPosition = 'center';
     gallery.style.backgroundRepeat = 'no-repeat';
     gallery.style.transition = 'background-image 0.5s ease-in-out';

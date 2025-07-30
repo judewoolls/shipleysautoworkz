@@ -57,10 +57,11 @@ nav img.logo {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../images/shipleysautoworkz/1.png") no-repeat center right;
+    background: url("../images/shipleysautoworkz/1.png") no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
+
 
 .hero h1 {
     font-size: 2.5em;
