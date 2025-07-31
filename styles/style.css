@@ -315,7 +315,7 @@ form {
 
     .about {
         padding: 200px 0;
-        background: url('../images/shipleysautoworkz/11.png') no-repeat center right fixed;
+        background: url('../images/shipleysautoworkz/11.png') no-repeat center right local;
         background-size: cover; /* Ensures the image covers the entire area */
     }
     
