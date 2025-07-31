@@ -361,37 +361,3 @@ footer i:hover {
 }
 
 /*  #####  */
-
-
-
-#open-in-browser-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    color: #333;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 9999;
-    font-size: 14px;
-  }
-  
-  #open-browser-btn {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #open-browser-btn:hover {
-    background: #0056b3;
-  }
-  

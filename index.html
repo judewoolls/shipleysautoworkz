@@ -29,11 +29,6 @@
 </head>
 
 <body>
-    <div id="open-in-browser-banner" style="display: none;">
-        <p>For the best experience, open this website in your browser.</p>
-        <button id="open-browser-btn">Open in Browser</button>
-    </div>
-
     <nav>
         <img src="images/shipleysautoworkz-logo-2.png" alt="ShipleysAutoWorkz Logo" class="logo">
     </nav>
@@ -157,19 +152,6 @@
     <script src="scripts/script.js"></script>
     <script src="scripts/gallery.js"></script>
     <script src="https://kit.fontawesome.com/e2a727411d.js" crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-            if (/Instagram/i.test(ua)) {
-                document.getElementById("open-in-browser-banner").style.display = "flex";
-
-                document.getElementById("open-browser-btn").addEventListener("click", function () {
-                    window.open(window.location.href, "_blank");
-                });
-            }
-        });
-    </script>
 
 </body>
 
