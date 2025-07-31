@@ -282,6 +282,12 @@ main {
     border-radius: 5px;
 }
 
+.contact-card a:hover {
+    background-color: rgb(240, 136, 230);
+    color: white;
+    box-shadow: rgb(240, 136, 230) 0px 0px 30px;
+}
+
 form {
     text-align: left;
     margin-top: 100px;
