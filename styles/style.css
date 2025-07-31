@@ -36,6 +36,20 @@ nav img.logo {
     margin: 0;
 }
 
+.intro-modal {
+    display: grid;
+    grid-template-rows: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    min-width: 100%;
+    transition: all 3s ease;
+}
+
+.intro-modal-end {
+    grid-template-rows: 110px;
+    padding: 10px;
+}
 .hero {
     padding: 20px;
     text-align: center;
