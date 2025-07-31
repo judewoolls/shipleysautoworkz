@@ -1,67 +1,86 @@
+// Gallery Script with Mobile-Safe Checks
+
 const buttons = document.querySelectorAll('[data-carousel-button]');
+const slidesContainer = document.querySelector('[data-slides]');
+const carousel = document.querySelector('.carousel');
 
 let address = 'images/shipleysautoworkz/';
 const mediaItems = [
     ...Array.from({ length: 25 }, (_, i) => ({ type: 'image', src: `${i + 1}.webp` }))
 ];
 
-const slidesContainer = document.querySelector('[data-slides]');
+document.addEventListener('DOMContentLoaded', () => {
+    // Disable gallery setup on very small screens if needed
+    if (!slidesContainer) return;
 
-if (slidesContainer) {
+    // ✅ Populate slides
     mediaItems.forEach((item, index) => {
         const li = document.createElement('li');
         li.classList.add('slide');
-        if (index === 0) li.dataset.active = ''; // Set only the first as active
+        if (index === 0) li.dataset.active = '';
 
         if (item.type === 'image') {
             const img = document.createElement('img');
-            img.src = address + item.src;
-            // img.loading = 'lazy'; // Lazy load images
+            img.src = `${address}${item.src}`;
             img.alt = `Media ${index + 1}`;
             li.appendChild(img);
-        } 
+        } else if (item.type === 'video') {
+            const video = document.createElement('video');
+            video.src = `${address}${item.src}`;
+            video.controls = true;
+            video.alt = `Media ${index + 1}`;
+            li.appendChild(video);
+        }
+
         slidesContainer.appendChild(li);
     });
-}
 
+    updateSlideBackground();
+});
+
+// ✅ Function to update background safely
 function updateSlideBackground() {
+    if (!slidesContainer || !carousel) return;
+
     const activeSlide = slidesContainer.querySelector('[data-active]');
-    const carousel = document.querySelector('.carousel');
-    if (activeSlide) {
-        const img = activeSlide.querySelector('img');
-        const video = activeSlide.querySelector('video');
-        if (img && document.body.clientWidth > 991) {
-            if (img.complete) {
+    if (!activeSlide) return;
+
+    const img = activeSlide.querySelector('img');
+    const video = activeSlide.querySelector('video');
+
+    // Only apply background for desktop screens
+    if (img && window.innerWidth > 991) {
+        if (img.complete) {
+            carousel.style.backgroundImage = `url(${img.src})`;
+        } else {
+            img.onload = () => {
                 carousel.style.backgroundImage = `url(${img.src})`;
-            }
-        } else if (video) {
-            carousel.style.backgroundImage = ''; // Clear background for videos
+            };
         }
+    } else if (video) {
+        carousel.style.backgroundImage = '';
     }
 }
 
-if (buttons.length > 0 && slidesContainer) {
+// ✅ Button navigation
+if (buttons.length > 0) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+            const slidesWrapper = button.closest('[data-carousel]')?.querySelector('[data-slides]');
+            if (!slidesWrapper) return;
+
+            const activeSlide = slidesWrapper.querySelector('[data-active]');
+            if (!activeSlide) return;
+
             const offset = button.dataset.carouselButton === 'next' ? 1 : -1;
-            const slides = button.closest('[data-carousel]').querySelector('[data-slides]');
+            let newIndex = [...slidesWrapper.children].indexOf(activeSlide) + offset;
 
-            const activeSlide = slides.querySelector('[data-active]');
-            let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+            if (newIndex < 0) newIndex = slidesWrapper.children.length - 1;
+            if (newIndex >= slidesWrapper.children.length) newIndex = 0;
 
-            if (newIndex < 0) newIndex = slides.children.length - 1;
-            if (newIndex >= slides.children.length) newIndex = 0;
-
-            // Remove 'data-active' from current slide
             delete activeSlide.dataset.active;
-            // Set 'data-active' on new slide
-            slides.children[newIndex].dataset.active = '';
+            slidesWrapper.children[newIndex].dataset.active = '';
             updateSlideBackground();
         });
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateSlideBackground(); // Set initial background
-});
-// Ensure the background updates when the page loads
