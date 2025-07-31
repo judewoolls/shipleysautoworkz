@@ -37,7 +37,6 @@
     background-size: cover;
     border-radius: 10px;
     overflow: hidden;
-    will-change: background-image;
 }
 
 .carousel::before {
@@ -65,7 +64,7 @@
     transition: opacity 500ms ease-in-out;
     transition-delay: 200ms;
     height: 100%;
-    will-change: opacity, transform;
+    will-change: opacity;
 }
 
 .slide > img {
