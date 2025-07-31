@@ -111,32 +111,28 @@ main {
 
 .about {
     text-align: center;
-    padding: 40px;
-    max-width: 100%;
-    border: rgb(91, 189, 254) 2px solid;
+    padding: 15px;
+    width: 100%;
+    background: url('../images/shipleysautoworkz/shipley-pattern-2.webp') no-repeat center center;
+    background-size: cover; /* Ensures the background covers the entire section */
+    opacity: 1; /* Ensure the section is fully opaque */
+    border: 2px solid rgb(91, 189, 254);
     border-radius: 10px;
-    position: relative; /* Essential for ::before absolute positioning */
-    overflow: hidden; /* Ensures content stays within bounds if needed */
-
-    /* --- KEY CHANGE: Image is now the background of the .about element --- */
-    /* background: url('../images/shipleysautoworkz/11.png') no-repeat center right; */
-    /* background-size: cover; Ensures the image covers the entire area */
-    background-color: #1a1a1a; /* Fallback if image fails to load */
-    /* ------------------------------------------------------------------ */
-
-    /* z-index for .about itself. Needs to be lower than its content,
-       but higher than anything behind it if applicable.
-       Often, just `position: relative` is enough if content has `z-index` */
-    z-index: 0;
 }
+
+.about-content {
+    background-color: black; /* Solid black background for the content */
+    padding: 20px 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
 
 
 #about-title {
     font-size: 2em;
     color: white;
     margin-top: -5px;
-    z-index: 2; /* Ensure title is above the overlay */
-    position: relative; /* Ensure title is positioned above the overlay */
 }
 
 .about-text {
@@ -144,8 +140,6 @@ main {
     color: #d3d3d3;
     margin: 20px 0;
     line-height: 1.6;
-    z-index: 2; /* Ensure text is above the overlay */
-    position: relative; /* Ensure text is positioned above the overlay */
 }
 
 /* Services section */
@@ -287,7 +281,7 @@ form {
     gap: 10px;
     background-color: black;
     padding: 20px;
-    border: 1px solid rgb(91, 189, 254);
+    border: 4px solid rgb(91, 189, 254);
     border-radius: 10px;
     width: 100%;
 }
