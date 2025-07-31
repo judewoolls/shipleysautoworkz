@@ -18,7 +18,8 @@
     height: 4px;
     background-color: violet;
     position: absolute;
-    left: 30;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -20;
 }
 
