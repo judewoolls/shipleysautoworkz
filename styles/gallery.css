@@ -16,7 +16,7 @@
     display: block;
     width: 6.5ch;
     height: 4px;
-    background-color: violet;
+    background-color: rgb(91, 189, 254);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -47,7 +47,7 @@
 .gallery-button {
     background-color: rgba(0, 0, 0, 0.2);
     font-size: 4rem;
-    color: violet;
+    color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -57,7 +57,7 @@
 
 .gallery-button:hover {
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: rgb(172, 223, 255);
     cursor: pointer;
 }
 

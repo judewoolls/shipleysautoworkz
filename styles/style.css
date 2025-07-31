@@ -102,7 +102,7 @@ main {
     padding: 40px;
     background-color: black;
     max-width: 100%;
-    border: violet 1px solid;
+    border: rgb(91, 189, 254) 2px solid;
     border-radius: 10px;
 }
 
@@ -236,7 +236,7 @@ form {
     gap: 10px;
     background-color: black;
     padding: 20px;
-    border: 1px solid violet;
+    border: 1px solid rgb(91, 189, 254);
     border-radius: 10px;
     width: 110%;
 }
@@ -277,14 +277,14 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-    border-color: violet;
+    border-color: rgb(91, 189, 254);
     outline: none;
-    background: radial-gradient(circle,  rgb(23, 0, 24) 0%,rgba(238,130,238,0.2) 100%);
+    background: radial-gradient(circle,  rgb(0, 57, 90) 0%,rgba(63, 169, 244, 0.2) 100%);
     color: white;
 }
 
 #form-button {
-    background-color: violet;
+    background-color: rgb(91, 189, 254);
     color: white;
     padding: 10px 20px;
     border: none;
