@@ -6,7 +6,7 @@ const carousel = document.querySelector('.carousel');
 
 let address = 'images/shipleysautoworkz/';
 const mediaItems = [
-    ...Array.from({ length: 25 }, (_, i) => ({ type: 'image', src: `${i + 1}.webp` }))
+    ...Array.from({ length: 22 }, (_, i) => ({ type: 'image', src: `${i + 1}.webp` }))
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
