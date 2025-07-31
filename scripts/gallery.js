@@ -1,34 +1,65 @@
-const gallery = document.querySelector('.gallery');
-        const galleryLeftButton = document.querySelector('.gallery-button:first-child');
-        const galleryRightButton = document.querySelector('.gallery-button:last-child');
+const buttons = document.querySelectorAll('[data-carousel-button]');
 
-        let currentIndex = 0;
-        const images = [
-            '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png',
-            '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '18.png', '19.png', '20.png',
-            '21.png', '22.png', '23.png', '24.png', '25.png'
-        ];
+let address = 'images/shipleysautoworkz/';
+const mediaItems = [
+    ...Array.from({ length: 25 }, (_, i) => ({ type: 'image', src: `${i + 1}.png` }))
+];
 
-        function updateGallery() {
-            console.log(`Updating gallery to image: ${images[currentIndex]}`);
-            // Directly set the background-image on the .gallery element
-            gallery.style.backgroundImage = `url(images/shipleysautoworkz/${images[currentIndex]})`;
-            // Ensure other background properties are consistent
-            gallery.style.backgroundSize = 'contain';
-            gallery.style.backgroundPosition = 'center';
-            gallery.style.backgroundRepeat = 'no-repeat';
-            // The transition is already set in CSS
+const slidesContainer = document.querySelector('[data-slides]');
+
+mediaItems.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.classList.add('slide');
+    if (index === 0) li.dataset.active = ''; // Set only the first as active
+
+    if (item.type === 'image') {
+        const img = document.createElement('img');
+        img.src = address + item.src;
+        img.loading = 'lazy'; // Lazy load images
+        img.alt = `Media ${index + 1}`;
+        li.appendChild(img);
+    } else if (item.type === 'video') {
+        const video = document.createElement('video');
+        video.src = address + item.src;
+        video.controls = true; // Add controls for the video
+        video.alt = `Media ${index + 1}`;
+        li.appendChild(video);
+    }
+
+    slidesContainer.appendChild(li);
+});
+
+function updateSlideBackground() {
+    const activeSlide = slidesContainer.querySelector('[data-active]');
+    const carousel = document.querySelector('.carousel');
+    if (activeSlide) {
+        const img = activeSlide.querySelector('img');
+        const video = activeSlide.querySelector('video');
+        if (img) {
+            setTimeout(() => {
+                carousel.style.backgroundImage = `url(${img.src})`;
+            }, 100); // Delay to ensure the image is loaded
+        } else if (video) {
+            carousel.style.backgroundImage = ''; // Clear background for videos
         }
+    }
+}
 
-        galleryLeftButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateGallery();
-        });
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const offset = button.dataset.carouselButton === 'next' ? 1 : -1;
+        const slides = button.closest('[data-carousel]').querySelector('[data-slides]');
 
-        galleryRightButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateGallery();
-        });
+        const activeSlide = slides.querySelector('[data-active]');
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
 
-        // Initialize the gallery with the first image when the page loads
-        document.addEventListener('DOMContentLoaded', updateGallery);
+        if (newIndex < 0) newIndex = slides.children.length - 1;
+        if (newIndex >= slides.children.length) newIndex = 0;
+
+        // Remove 'data-active' from current slide
+        delete activeSlide.dataset.active;
+        // Set 'data-active' on new slide
+        slides.children[newIndex].dataset.active = '';
+        updateSlideBackground();
+    });
+});
