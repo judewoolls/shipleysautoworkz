@@ -63,3 +63,8 @@ buttons.forEach(button => {
         updateSlideBackground();
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateSlideBackground(); // Set initial background
+});
+// Ensure the background updates when the page loads
