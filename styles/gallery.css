@@ -1,10 +1,8 @@
 .gallery-section {
-    min-width: 100%;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
 }
 
 .gallery-title {
@@ -24,32 +22,26 @@
     bottom: -20;
 }
 
+
 .gallery {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 100%;
-    min-height: 80vh;
-    background-color: #f8f9fa;
-    background: url('../images/shipleysautoworkz/1.png') no-repeat center;
-    background-size: contain;
+    width: 100%; /* Use width instead of min-width for better responsiveness */
+    height: 80vh; /* Fixed height for the gallery container */
+    background-color: #333; /* Fallback background color */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* Use 'contain' to ensure full image is visible */
+    padding: 20px;
     border: 1px solid white;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    /* Initial background image will be set by JS on load */
+    transition: background-image 0.5s ease-in-out; /* Smooth transition for image change */
 }
 
-.gallery::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-}
 
 .gallery-button {
     background-color: rgba(0, 0, 0, 0.2);
