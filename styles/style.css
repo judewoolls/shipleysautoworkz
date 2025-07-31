@@ -160,7 +160,7 @@ main {
     justify-content: space-evenly;
     gap: 20px;
     background: url('../images/shipleysautoworkz/shipley-pattern-2.webp');
-    background-size: cover;
+    background-size: fill;
     padding: 50px 20px;
     border: 1px solid violet;
 

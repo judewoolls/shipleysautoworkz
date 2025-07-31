@@ -6,17 +6,17 @@
 }
 
 #mot-card {
-    background: url('../images/shipleysautoworkz/2.webp') left center;
+    background: url('../images/shipleysautoworkz/6.webp') left center;
     background-size: cover;
 }
 
 #maintenance-card {
-    background: url('../images/shipleysautoworkz/3.webp') center;
+    background: url('../images/shipleysautoworkz/15.webp') center;
     background-size: cover;
 }
 
 #mods-card {
-    background: url('../images/shipleysautoworkz/1.webp') center;
+    background: url('../images/shipleysautoworkz/3.webp') center;
     background-size: cover;
 }
 
@@ -31,7 +31,7 @@
     text-align: left;
     border-radius: 1rem;
     overflow: hidden;
-    border: 1px solid white;
+    border: 2px solid violet;
     transition: transform 0.3s ease-in-out;
 
 }
