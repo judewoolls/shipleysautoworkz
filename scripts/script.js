@@ -25,12 +25,3 @@ const serviceObserver = new IntersectionObserver((entries) => {
   
   services.forEach((el) => serviceObserver.observe(el));
 
-
-  // intro modal
-  // modal interaction
-const modal = document.querySelector('.intro-modal');
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        modal.classList.add('intro-modal-end');
-    }, 1200);
-});
