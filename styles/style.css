@@ -237,6 +237,13 @@ main {
     border: 1px solid violet;
 }
 
+@media screen and (min-width: 820px) {
+    #contact-cards-div {
+        padding: 75px;
+    }
+    
+}
+
 .contact-card {
     background-color: black;
     color: white;

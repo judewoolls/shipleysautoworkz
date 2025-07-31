@@ -69,7 +69,7 @@
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
-    border: white solid 2px;
+    border: rgb(91, 189, 254) solid 2px;
 }
 
 .slide > video {
@@ -97,17 +97,17 @@
     top: 50%;
     z-index: 2;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgb(165, 216, 249);
     cursor: pointer;
     border-radius: 0.25rem;
     padding: 0 0.5rem;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .carousel-button:hover,
 .carousel-button:focus {
     color: white;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .carousel-button:focus {
