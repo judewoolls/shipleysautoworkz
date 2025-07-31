@@ -33,13 +33,17 @@
     height: 100%;
     position: relative;
     background-color: black;
-    background: url('../images/shipleysautoworkz/1.webp') no-repeat center center;
-    background-size: cover;
     border-radius: 10px;
     overflow: hidden;
 }
 
-
+@media screen and (min-width: 991px) {
+    .carousel {
+        background: url('../images/shipleysautoworkz/1.webp') no-repeat center center;
+        background-size: cover;
+    }
+    
+}
 
 .carousel > ul {
     margin: 0;
