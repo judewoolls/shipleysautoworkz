@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Disable gallery setup on very small screens if needed
     if (!slidesContainer) return;
 
-    // ✅ Populate slides
     mediaItems.forEach((item, index) => {
         const li = document.createElement('li');
         li.classList.add('slide');
@@ -23,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = `${address}${item.src}`;
             img.alt = `Media ${index + 1}`;
+            img.loading = 'lazy';
             li.appendChild(img);
         } else if (item.type === 'video') {
             const video = document.createElement('video');
@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlideBackground();
 });
 
-// ✅ Function to update background safely
 function updateSlideBackground() {
     if (!slidesContainer || !carousel) return;
 
@@ -47,8 +46,6 @@ function updateSlideBackground() {
 
     const img = activeSlide.querySelector('img');
     const video = activeSlide.querySelector('video');
-
-    // Only apply background for desktop screens
     if (img && window.innerWidth > 991) {
         if (img.complete) {
             carousel.style.backgroundImage = `url(${img.src})`;
@@ -62,7 +59,6 @@ function updateSlideBackground() {
     }
 }
 
-// ✅ Button navigation
 if (buttons.length > 0) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
