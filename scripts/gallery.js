@@ -36,9 +36,9 @@ function updateSlideBackground() {
         const img = activeSlide.querySelector('img');
         const video = activeSlide.querySelector('video');
         if (img && document.body.clientWidth > 991) {
-            setTimeout(() => {
+            if (img.complete) {
                 carousel.style.backgroundImage = `url(${img.src})`;
-            }, 100); // Delay to ensure the image is loaded
+            }
         } else if (video) {
             carousel.style.backgroundImage = ''; // Clear background for videos
         }
