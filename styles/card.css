@@ -23,6 +23,7 @@
 
 
 .card {
+    will-change: transform, opacity;
     min-height: 400px;
     /* background-image: url('../images/cards/a\ man\ writing\ code.png'); */
     padding: 10rem 0 0;

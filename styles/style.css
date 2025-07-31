@@ -48,6 +48,7 @@ nav img.logo {
     background-color: black;
     min-width: 100%;
     transition: all 3s ease;
+    will-change: grid-template-rows;
 }
 
 .intro-modal-end {
