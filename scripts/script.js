@@ -1,27 +1,28 @@
-
-// service section animation
-const serviceObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target.dataset.service === '1') {
-            entry.target.classList.add('service-card-end');
-            entry.target.classList.remove('service-card-start');
-          } else if (entry.target.dataset.service === '2') {
-            entry.target.classList.add('service-card-end-2');
-            entry.target.classList.remove('service-card-start-2');
-          }
-        } else {
-          if (entry.target.dataset.service === '1') {
-            entry.target.classList.remove('service-card-end');
-            entry.target.classList.add('service-card-start');
-          } else if (entry.target.dataset.service === '2') {
-            entry.target.classList.remove('service-card-end-2');
-            entry.target.classList.add('service-card-start-2');
-          }
-        }
-    });
-  });
+document.addEventListener('DOMContentLoaded', () => {
   const services = document.querySelectorAll('.service-card');
-  
-  services.forEach((el) => serviceObserver.observe(el));
+  if (!services.length) return;
 
+  const serviceObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+          const serviceType = entry.target.dataset.service;
+
+          if (entry.isIntersecting) {
+              entry.target.classList.add(
+                  serviceType === '1' ? 'service-card-end' : 'service-card-end-2'
+              );
+              entry.target.classList.remove(
+                  serviceType === '1' ? 'service-card-start' : 'service-card-start-2'
+              );
+          } else {
+              entry.target.classList.remove(
+                  serviceType === '1' ? 'service-card-end' : 'service-card-end-2'
+              );
+              entry.target.classList.add(
+                  serviceType === '1' ? 'service-card-start' : 'service-card-start-2'
+              );
+          }
+      });
+  });
+
+  services.forEach((el) => serviceObserver.observe(el));
+});
