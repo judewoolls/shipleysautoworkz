@@ -6,17 +6,17 @@
 }
 
 #mot-card {
-    background: url('../images/shipleysautoworkz/2.png') left center;
+    background: url('../images/shipleysautoworkz/2.webp') left center;
     background-size: cover;
 }
 
 #maintenance-card {
-    background: url('../images/shipleysautoworkz/3.png') center;
+    background: url('../images/shipleysautoworkz/3.webp') center;
     background-size: cover;
 }
 
 #mods-card {
-    background: url('../images/shipleysautoworkz/1.png') center;
+    background: url('../images/shipleysautoworkz/1.webp') center;
     background-size: cover;
 }
 
@@ -25,7 +25,6 @@
 .card {
     will-change: transform, opacity;
     min-height: 400px;
-    /* background-image: url('../images/cards/a\ man\ writing\ code.png'); */
     padding: 10rem 0 0;
     max-width: 40ch;
     min-width: 40ch;

@@ -2,7 +2,7 @@ const buttons = document.querySelectorAll('[data-carousel-button]');
 
 let address = 'images/shipleysautoworkz/';
 const mediaItems = [
-    ...Array.from({ length: 25 }, (_, i) => ({ type: 'image', src: `${i + 1}.png` }))
+    ...Array.from({ length: 25 }, (_, i) => ({ type: 'image', src: `${i + 1}.webp` }))
 ];
 
 const slidesContainer = document.querySelector('[data-slides]');
@@ -15,7 +15,7 @@ mediaItems.forEach((item, index) => {
     if (item.type === 'image') {
         const img = document.createElement('img');
         img.src = address + item.src;
-        img.loading = 'lazy'; // Lazy load images
+        // img.loading = 'lazy'; // Lazy load images
         img.alt = `Media ${index + 1}`;
         li.appendChild(img);
     } else if (item.type === 'video') {
