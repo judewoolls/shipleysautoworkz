@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slidesContainer.appendChild(li);
     });
-
+    if (window.innerWidth > 991) {
     updateSlideBackground();
+    }
 });
 
 function updateSlideBackground() {
