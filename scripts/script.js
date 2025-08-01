@@ -65,7 +65,7 @@ function createSlide(index, isActive = false) {
 
     const img = document.createElement('img');
     img.src = `${address}${index + 1}.webp`;
-    img.alt = `Media ${index + 1}`;
+    img.alt = `Media ${index + 1} photo of garage or car`;
     img.loading = 'lazy';
     li.appendChild(img);
 
