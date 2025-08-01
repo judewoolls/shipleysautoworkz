@@ -2,41 +2,58 @@ const buttons = document.querySelectorAll('[data-carousel-button]');
 const slidesContainer = document.querySelector('[data-slides]');
 const carousel = document.querySelector('.carousel');
 
-const address = 'images/shipleysautoworkz/';
-const mediaItems = Array.from({ length: 22 }, (_, i) => ({
-    type: 'image',
-    src: `${i + 1}.webp`
-}));
-
-let activeIndex = 0;
-const buffer = 2; // how many to keep before/after
+let address = 'images/shipleysautoworkz/';
+const totalMedia = 22;
+const buffer = 2;
+let currentIndex = 0;
+let activeSlides = new Set();
+let preloadCache = {};
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!slidesContainer) return;
-    renderSlides();
+    renderVisibleSlides();
+    preloadImages(currentIndex);
     if (window.innerWidth > 991) updateSlideBackground();
 });
 
-function renderSlides() {
-    slidesContainer.innerHTML = ''; // Clear old slides
+function renderVisibleSlides() {
+    slidesContainer.innerHTML = '';
+    activeSlides.clear();
 
-    const start = Math.max(0, activeIndex - buffer);
-    const end = Math.min(mediaItems.length - 1, activeIndex + buffer);
-
-    for (let i = start; i <= end; i++) {
-        const li = document.createElement('li');
-        li.classList.add('slide');
-        if (i === activeIndex) li.dataset.active = '';
-
-        if (mediaItems[i].type === 'image') {
-            const img = document.createElement('img');
-            img.src = `${address}${mediaItems[i].src}`;
-            img.alt = `Media ${i + 1}`;
-            img.loading = 'lazy';
-            li.appendChild(img);
-        }
-        slidesContainer.appendChild(li);
+    for (let offset = -buffer; offset <= buffer; offset++) {
+        const index = (currentIndex + offset + totalMedia) % totalMedia;
+        createSlide(index, offset === 0);
+        activeSlides.add(index);
     }
+}
+
+function createSlide(index, isActive = false) {
+    const li = document.createElement('li');
+    li.classList.add('slide');
+    if (isActive) li.dataset.active = '';
+
+    const img = document.createElement('img');
+    img.src = `${address}${index + 1}.webp`;
+    img.alt = `Media ${index + 1}`;
+    img.loading = 'lazy';
+    li.appendChild(img);
+
+    slidesContainer.appendChild(li);
+}
+
+function preloadImages(index) {
+    const preloadIndices = [
+        (index + buffer + 1) % totalMedia,
+        (index - buffer - 1 + totalMedia) % totalMedia
+    ];
+
+    preloadIndices.forEach(idx => {
+        if (!preloadCache[idx]) {
+            const img = new Image();
+            img.src = `${address}${idx + 1}.webp`;
+            preloadCache[idx] = img;
+        }
+    });
 }
 
 function updateSlideBackground() {
@@ -44,14 +61,12 @@ function updateSlideBackground() {
     if (!activeSlide) return;
 
     const img = activeSlide.querySelector('img');
-    if (img && window.innerWidth > 991) {
-        if (img.complete) {
+    if (img && img.complete) {
+        carousel.style.backgroundImage = `url(${img.src})`;
+    } else if (img) {
+        img.onload = () => {
             carousel.style.backgroundImage = `url(${img.src})`;
-        } else {
-            img.onload = () => {
-                carousel.style.backgroundImage = `url(${img.src})`;
-            };
-        }
+        };
     }
 }
 
@@ -59,8 +74,9 @@ if (buttons.length > 0) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const offset = button.dataset.carouselButton === 'next' ? 1 : -1;
-            activeIndex = (activeIndex + offset + mediaItems.length) % mediaItems.length;
-            renderSlides();
+            currentIndex = (currentIndex + offset + totalMedia) % totalMedia;
+            renderVisibleSlides();
+            preloadImages(currentIndex);
             updateSlideBackground();
         });
     });
