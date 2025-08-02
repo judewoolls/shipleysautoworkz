@@ -34,7 +34,7 @@ const slidesContainer = document.querySelector('[data-slides]');
 const carousel = document.querySelector('.carousel');
 
 let address = 'images/shipleysautoworkz/';
-const totalMedia = 22;
+const totalMedia = 35;
 const buffer = 2;
 let currentIndex = 0;
 let activeSlides = new Set();
